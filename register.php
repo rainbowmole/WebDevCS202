@@ -50,7 +50,7 @@
 					if(empty($errors)){
 						require('mysqli_connect.php');
 						//query to register data
-						$hashp = hash('md5', $p);
+						$hashp = hash('sha256', $p);
 						$q = "insert into users(fname, lname, email, psword, registration_date) values ('$fn', '$ln', '$e', '$hashp', NOW());";
 						$result = @mysqli_query($dbcon, $q);
 

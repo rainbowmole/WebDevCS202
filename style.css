@@ -24,7 +24,7 @@ body {
 
 #nav {
     background-color: #E9EFEC;
-    margin-left: 27%;
+    margin-left: 25%;
     padding: 0;
 }
 
@@ -269,6 +269,41 @@ a {
 a:hover {
     color: #d2ffee;
     text-decoration: none;
+}
+
+#view_users {
+    background-color: #6A9C89;
+    text-align: justify;
+    padding: 3px;
+    margin: 5px;
+    margin-right: 8%;
+    margin-left: 15%;
+    margin-bottom: 5%;
+    border-radius: 8px;
+}
+
+#view_users h2 {
+    text-align: justify;
+    text-decoration: none;
+    padding: 0px;
+    margin-top: 3%;
+    margin-left: 33%;
+    color: #39705b;
+    font-size: 50px;
+}
+
+#view_users p {
+	margin-left: 130px;
+    margin-right: 100px;
+    margin-bottom: 10px;
+}
+
+table, tr, td {
+    border: 1px solid;
+    border-collapse: collapse;
+    margin-left: 29.6%;
+    color: #305e4c;
+    background-color: #C4DAD2;
 }
 
 #pic {
