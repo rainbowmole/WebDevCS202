@@ -18,20 +18,23 @@
 			<?php
 				require('mysqli_connect.php');
 				//fetch data sa query
-				$q = "SELECT fname, lname, email, DATE_FORMAT(registration_date, '%M %d, %Y') as regdate from users ORDER BY registration_date ASC";
+				$q = "SELECT user_id, fname, lname, email, DATE_FORMAT(registration_date, '%M %d, %Y') as regdate from users ORDER BY registration_date ASC";
 				$result = @mysqli_query($dbcon, $q);
 				if ($result) { //successful fetching
 					echo '<table>
 							<tr>
-							<td>Name</td>
-							<td>Email</td>
-							<td>Registration date</td>
+							<th>Name</th>
+							<th>Email</th>
+							<th>Registration date</th>
+							<th>Actions</th>
 							</tr>';
 					while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
 						echo '<tr>
 						<td>' .$row['lname'].', '.$row['fname']. '</td>
 						<td>' .$row['email'] .'</td>
 						<td>' .$row['regdate'] . '</td>
+						<td><a href="edit_user.php?id='.$row['user_id'].'">Edit<a/></td>
+						<td><a href="delete_user.php?id='.$row['user_id'].'">Delete<a/></td>
 						</tr>';
 					}
 					echo '</table>';
