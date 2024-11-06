@@ -23,7 +23,6 @@
 				}else{//oh no.. id not found
 					echo '<p class="error">This page has been accessed by mistake.</p>';
 					echo '<a href="register-view-users.php">Go back</a>';
-					include('footer.php');
 					exit();
 				}
 				require('mysqli_connect.php');
@@ -46,7 +45,7 @@
 					}
 				}else{
 					//display user information
-					$q = "Select concat(fname, '', lname) from users where user_id=$id";
+					$q = "Select concat(fname, ' ', lname) from users where user_id=$id";
 					$result = @mysqli_query($dbcon, $q);
 					if(mysqli_affected_rows($dbcon) == 1){
 						//user is found

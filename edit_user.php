@@ -1,7 +1,7 @@
 <!doctype html> 
 <html lang="en">
 <head>
-	<title>Camacho's Website</title>
+	<title>Edit User Information</title>
 	<meta charset = "utf-8">
 	<link rel="stylesheet" type="text/css" href="style.css">
 	
@@ -12,28 +12,96 @@
 		<?php include('nav.php'); ?>
 		<?php include('info-col.php'); ?>
 		
-		<div id='content'>
-			<h2>This is the home page</h2>
-			<p>
-			Lorem ipsum odor amet, consectetuer adipiscing elit. 
-			Pharetra augue quisque tempus, placerat posuere ac iaculis. 
-			Molestie lobortis dignissim sit litora rutrum. 
-			Tincidunt dis fermentum urna dapibus leo pellentesque. 
-			Nisi nulla nisl id cras lobortis hendrerit. 
-			Rhoncus maecenas torquent ligula euismod sit faucibus mollis. 
-			Etiam egestas sollicitudin vivamus molestie nullam.
-			</p>
-			
-			<p>
-			Facilisis commodo pellentesque duis conubia nunc. 
-			Risus odio et ad praesent lobortis dolor massa ligula. 
-			Neque vulputate blandit, vehicula cubilia quis donec justo enim libero. 
-			Bibendum rhoncus vel habitasse ridiculus, auctor ipsum habitasse. 
-			Tristique ac dis magnis phasellus tincidunt sagittis amet. 
-			Luctus semper ac gravida urna netus fringilla vulputate. 
-			Potenti hendrerit etiam magnis pellentesque mus consequat metus arcu. 
-			Magnis ligula porttitor viverra platea hendrerit feugiat sed.
-			</p>
+		<div id='edit_user'>
+			<h2>Edit User Record</h2>
+			<?php
+				//checking lang kung valid id 
+				if((isset($_GET['id'])) && (is_numeric($_GET['id']))){
+					$id = $_GET['id'];
+				}elseif((isset($_POST['id'])) && (is_numeric($_POST['id']))){
+					$id = $_POST['id'];
+				}else{//oh no.. id not found
+					echo '<p class="error">This page has been accessed by mistake.</p>';
+					echo '<a href="register-view-users.php">Go back</a>';
+					exit();
+				}
+				require('mysqli_connect.php');
+				if($_SERVER['REQUEST_METHOD'] == 'POST'){
+					$errors = array();
+					//check first name, last name, and email
+					if(empty($_POST['fname'])) { //fname
+						$errors[] = 'Please input your first name.';
+					}else{
+						$fn = trim($_POST['fname']);
+					}
+					if(empty($_POST['lname'])) { //lname
+						$errors[] = 'Please input your last name.';
+					}else{
+						$ln = trim($_POST['lname']);
+					}
+					//may email ba?
+					if(empty($_POST['email'])) { //email
+						$errors[] = 'Please input your email.';
+					}else{
+						$e = trim($_POST['email']);
+					}
+					if(empty($errors)){
+						$q = "UPDATE users SET fname='$fn', lname='$ln', email='$e' WHERE user_id = '$id' LIMIT 1"; // sanity checking
+						$result = @mysqli_query($dbcon,$q);
+						if(mysqli_affected_rows($dbcon) == 1){
+							echo'<h3>Successful Update: User data is edited</h3>';
+							echo '<a href="register-view-users.php">Go back</a>';
+						}else{ 
+							echo'<h3>Unsuccessful Update: User data is not edited</h3>';
+							echo'<p>'.mysqli_error($dbcon).'</p>';
+						}
+					}else{
+						echo'<div id="edit_error"><h2>Error!</h2><p class="error">The following 
+						error(s) occured:<br/>';
+						foreach($errors as $msg){
+							echo " - $msg<br/>\n";
+						}
+						echo '</p><h3>Please try again.</h3><br/><br/>';
+						echo '</div>';
+					}
+				}
+				$q  = "SELECT fname, lname, email FROM users where user_id=$id";
+				$result = @mysqli_query($dbcon,$q);
+				if(mysqli_num_rows($result) == 1){ //user_id is valid
+					$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+					//create form
+					echo '
+						<form action="edit_user.php" method="post">
+
+							<p><label class="label" for="fname">First Name: </label>
+							<input type="text" id="fname" name="fname" size="30" maxlength="40"
+							value="'.$row['fname'].'">
+							</p>
+
+							<p><label class="label" for="lname">Last Name: </label>
+							<input type="text" id="lname" name="lname" size="30" maxlength="40"
+							value="'.$row['lname'].'">
+							</p>
+
+							<p><label class="label" for="email">Email Address: </label>
+							<input type="text" id="email" name="email" size="30" maxlength="50"
+							value="'.$row['email'].'">
+							</p>
+
+							<p><input type="submit" id="edit" name="edit" value="Edit"></p>
+							<p><input type="hidden" name="id" value="'.$id.'"></p>
+						
+						</form>
+					';
+				}else{
+					//no valid id
+					echo '<h3>User does not exist</h3>';
+					//tell the user to register instead
+					echo '<p>Not yet registered?';
+					echo '<br><a id="signupka" href="register.php">Register here</a></p>';
+				}
+				mysqli_close($dbcon);
+			?>
 		</div>
 	</div>
 	<?php include('footer.php'); ?>
