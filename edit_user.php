@@ -94,11 +94,10 @@
 						</form>
 					';
 				}else{
-					//no valid id
+					//no valid id tell the user to register instead
 					echo '<h3>User does not exist</h3>';
-					//tell the user to register instead
-					echo '<p>Not yet registered?';
-					echo '<br><a id="signupka" href="register.php">Register here</a></p>';
+					echo '<p>Not yet Registered?</p><br>;
+					<a href="register.php">Register here</a><br>';
 				}
 				mysqli_close($dbcon);
 			?>

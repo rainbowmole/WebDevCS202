@@ -13,16 +13,8 @@
 		<?php include('info-col.php'); ?>
 		
 		<div id='content'>
-			<h2>This is the home page</h2>
-			<p>
-			Lorem ipsum odor amet, consectetuer adipiscing elit. 
-			Pharetra augue quisque tempus, placerat posuere ac iaculis. 
-			Molestie lobortis dignissim sit litora rutrum. 
-			Tincidunt dis fermentum urna dapibus leo pellentesque. 
-			Nisi nulla nisl id cras lobortis hendrerit. 
-			Rhoncus maecenas torquent ligula euismod sit faucibus mollis. 
-			Etiam egestas sollicitudin vivamus molestie nullam.
-			</p>
+			<h2>Welcome to my Website</h2>
+			<image id=sukuna_domain src="sukuna_domain.gif"></image>
 			
 			<p>
 			Facilisis commodo pellentesque duis conubia nunc. 
