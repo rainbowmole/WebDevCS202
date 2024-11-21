@@ -9,7 +9,7 @@
 <body>
 	<div id="container">
 		<?php include('header.php'); ?>
-		<?php include('nav.php'); ?>
+		<?php include('nav_register.php'); ?>
 		<?php include('info-col.php'); ?>
 		
 		<div id='regcontent'>

@@ -1,15 +1,14 @@
 #header {
     background-color: #6A9C89;
-    font-size: 30px;
+    font-size: 28px;
     font-style: Ms Comic Sans;
-    margin: 0;
-    padding: 100px;
-    justify-content: center;
-    text-align: center;
+    padding: 10px;
+    text-align: left;
 }
 
 #header h1{
 	color: #295544;
+    margin-left: 8%;
 }
 
 body {
@@ -30,8 +29,9 @@ body {
 
 #nav_login {
     background-color: #6A9C89;
-    margin-left: 41%;
-    margin-top: -6.5%;
+    margin-left: 75%;
+    margin-top: -8%;
+    margin-bottom: 3%;
 }
 
 #nav_login li {
@@ -58,21 +58,31 @@ body {
 
 #nav_home {
     background-color: #6A9C89;
-    margin-left: 31%;
-    margin-top: -6.3%;
+    margin-left: 56%;
+    margin-top: -8%;
+    margin-bottom: 3%;
 }
 
 #nav_admin {
     background-color: #6A9C89;
-    margin-left: 25%;
-    margin-top: -6.3%;
+    margin-left: 51%;
+    margin-top: -8%;
+    margin-bottom: 3%;  
+}
+
+#nav_register {
+    background-color: #6A9C89;
+    margin-left: 56%;
+    margin-top: -8%;
+    margin-bottom: 3%;
+
 }
 
 
 li {
     padding: 20px;
-    padding-left: 40px;
-    padding-right: 40px;
+    padding-left: 28px;
+    padding-right: 28px;
     margin: 20px;
     font-size: medium;
     list-style: none;
@@ -342,8 +352,8 @@ a:hover {
 table, tr, td {
     border: 1px solid;
     border-collapse: collapse;
-    margin-left: 27%;
-    width: 50%;
+    margin-left: 11%;
+    width: 80%;
     color: #305e4c;
     background-color: #C4DAD2;
 }
@@ -353,6 +363,7 @@ th{
 }
 
 td{
+    padding: 10px;
     width: 50%;
 }
 

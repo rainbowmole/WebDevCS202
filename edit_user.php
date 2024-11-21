@@ -96,7 +96,7 @@
 				}else{
 					//no valid id tell the user to register instead
 					echo '<h3>User does not exist</h3>';
-					echo '<p>Not yet Registered?</p><br>;
+					echo '<p>Not yet Registered?</p><br>
 					<a href="register.php">Register here</a><br>';
 				}
 				mysqli_close($dbcon);

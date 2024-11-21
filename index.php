@@ -13,7 +13,7 @@
 		<?php include('info-col.php'); ?>
 		
 		<div id='content'>
-			<h2>Welcome to my Website</h2>
+			<h2>Welcome to my Domain</h2>
 			<image id=sukuna_domain src="sukuna_domain.gif"></image>
 			
 			<p>
