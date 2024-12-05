@@ -1,3 +1,11 @@
+<?php
+	session_start(); 
+	//checking for session id or admin
+	if(!isset($_SESSION['user_level']) or ($_SESSION['user_level'] != 1)){
+		header("location: login_page.php");
+		exit();
+	}
+?>
 <!doctype html> 
 <html lang="en">
 <head>
@@ -9,7 +17,7 @@
 <body>
 	<div id="container">
 		<?php include('header.php'); ?>
-		<?php include('nav.php'); ?>
+		<?php include('nav_admin.php'); ?>
 		<?php include('info-col.php'); ?>
 		
 		<div id='delete_user'>
