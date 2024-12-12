@@ -36,8 +36,8 @@ body {
 
 #nav_login li {
     padding: 20px;
-    padding-left: 70px;
-    padding-right: 70px;
+    padding-left: 1px;
+    padding-right: 1px;
     margin: 20px;
     font-size: larger;
     list-style: none;
@@ -52,8 +52,9 @@ body {
 
 #nav_members_page {
     background-color: #6A9C89;
-    margin-left: 55%;
-    margin-top: -6.3%;
+    margin-left: 50%;
+    margin-top: -7.5%;
+    margin-bottom: 4%;
 }
 
 #nav_home {
@@ -78,10 +79,14 @@ body {
 
 }
 
+/* padding: 20px; 
+padding-left: 28px; 
+padding-right: 28px; */
+
 li {
-    padding: 20px;
-    padding-left: 28px;
-    padding-right: 28px;
+    padding: 20px; 
+    padding-left: 1px; 
+    padding-right: 1px;
     margin: 20px;
     font-size: medium;
     list-style: none;
@@ -103,6 +108,11 @@ li a{
     text-decoration: none;
     color: #444444;
     border-radius: 4px;
+    padding: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 #info-col {
@@ -661,7 +671,7 @@ input[id=edit]:hover{
 #log_email{
     font-size: larger;
     margin-top: 15%;
-    margin-left: 3%;
+    margin-left: 4.4%;
 }
 
 #log_psword{
@@ -670,8 +680,8 @@ input[id=edit]:hover{
 }
 
 input[id=pop_email] {
-    width: 65%;
-    padding: 1.3%;
+    width: 66%;
+    padding: 1.5%;
     border-radius: 8px;
     border: 1px solid #6A9C89;
     background-color:  #ffffff;
